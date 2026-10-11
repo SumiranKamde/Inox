@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:8.0
+    container_name: inox_mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=inox_factory_db
+
+  app:
+    build: .
+    container_name: inox_shift_app
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongodb
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+      - MONGODB_URI=mongodb://mongodb:27017/inox_factory_db
+      - JWT_SECRET=inox_secret_key_super_secure_jwt_token_2026
+      - ADMIN_EMAIL=admin@inox.com
+      - ADMIN_PASSWORD=admin123
+
+volumes:
+  mongodb_data:

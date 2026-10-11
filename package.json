@@ -1,0 +1,31 @@
+{
+  "name": "inox-factory-shift-system",
+  "version": "1.0.0",
+  "description": "Factory Employee Management & Daily Shift Scheduling System",
+  "scripts": {
+    "build": "npm --prefix frontend install && npm --prefix frontend run build",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "start:backend": "npm --prefix backend start",
+    "seed": "npm --prefix backend run seed",
+    "build:frontend": "npm --prefix frontend run build"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "exceljs": "^4.4.0",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.5"
+  },
+  "keywords": [
+    "factory",
+    "employee-management",
+    "shift-scheduling",
+    "roster",
+    "exceljs"
+  ],
+  "author": "Inox",
+  "license": "ISC"
+}
