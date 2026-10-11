@@ -12,8 +12,9 @@ services:
     environment:
       - MONGO_INITDB_DATABASE=inox_factory_db
 
-  app:
-    build: .
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
     container_name: inox_shift_app
     restart: unless-stopped
     ports:
